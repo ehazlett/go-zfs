@@ -11,6 +11,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/dustin/go-humanize"
 	"github.com/google/uuid"
 )
 
@@ -83,7 +84,7 @@ func setUint(field *uint64, value string) error {
 	var v uint64
 	if value != "-" {
 		var err error
-		v, err = strconv.ParseUint(value, 10, 64)
+		v, err = humanize.ParseBytes(value)
 		if err != nil {
 			return err
 		}
